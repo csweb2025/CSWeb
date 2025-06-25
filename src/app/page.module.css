@@ -159,10 +159,1342 @@ a.secondary {
     align-items: center;
     justify-content: center;
   }
+
+  .contactHeader h1 {
+    font-size: 1.45rem;
+    text-align: center;
+    max-width: 98vw;
+    margin: 0 auto 1rem auto;
+    padding: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
+  /* Removed conflicting logo styles */
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  font-family: var(--font-poppins);
+  position: relative;
+}
+
+.sidebar {
+  width: 250px;
+  background: rgba(18, 18, 18, 0.95);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.logoText {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  gap: 5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.logoApp {
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.logoSpark {
+  color: #00a6ff !important;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.navItem {
+  color: #808080;
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.navItem:hover, .navItem.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navItem.active::before {
+  opacity: 0.1;
+}
+
+.navIcon {
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.navItem span {
+  position: relative;
+  z-index: 1;
+}
+
+.navItem:hover .navIcon {
+  transform: scale(1.1);
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 250px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.topNav {
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  margin-left: 1rem;
+}
+
+.navButtons {
+  display: flex;
+  gap: 2rem;
+}
+
+.navButton {
+  padding: 0.75rem 0;
+  background: none;
+  border: none;
+  color: #808080;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.navButton:hover {
+  color: #ffffff;
+}
+
+.navButton.active {
+  color: #ffffff;
+}
+
+.navButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+}
+
+.discoverContent, 
+.browseContent,
+.contactContent {
+  padding: 2rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gradientBg {
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 120, 242, 0.1) 0%, rgba(0, 120, 242, 0) 70%);
+  z-index: 0;
+}
+
+.discoverContent h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.introText {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #a0a0a0;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.serviceCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.25rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceIcon {
+  font-size: 1.75rem;
+  color: #0078f2;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(0, 120, 242, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover .serviceIcon {
+  transform: scale(1.1);
+  background: rgba(0, 120, 242, 0.15);
+  color: #00a6ff;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.serviceCard h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.serviceCard p {
+  color: #a0a0a0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contactButton {
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 120, 242, 0.3);
+}
+
+.contactButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 120, 242, 0.4);
+}
+
+.portfolioButton {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.portfolioButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.featuredSlider {
+  margin-bottom: 2rem;
+}
+
+.swiper {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+}
+
+.featuredSlide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+.projectImage {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.projectImg {
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImg {
+  transform: scale(1.05);
+}
+
+.projectInfo {
+  padding: 1.25rem;
+}
+
+.projectInfo h3 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.projectInfo p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+}
+
+.techSection {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.techSection h2,
+.statsSection h2,
+.ctaSection h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ffffff, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.techSection h2::after,
+.statsSection h2::after,
+.ctaSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  border-radius: 2px;
+}
+
+.techIntro {
+  color: #a0a0a0;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.techItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.techIcon {
+  font-size: 2.5rem;
+  color: #0078f2;
+}
+
+.statsSection {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.statsGrid.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statItem {
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  font-family: var(--font-poppins);
+}
+
+.statLabel {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.ctaSection {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 3rem 0;
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, rgba(0, 120, 242, 0.1));
+  border-radius: 12px;
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.ctaSection p {
+  color: #a0a0a0;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 120, 242, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile menu button */
+.mobileMenuButton {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.mobileMenuButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .discoverContent,
+  .browseContent {
+    padding: 3rem 4rem;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Medium screens (768px to 1199px) */
+@media (max-width: 1199px) {
+  .sidebar {
+    width: 220px;
+    padding: 1.5rem;
+  }
+  
+  .mainContent {
+    margin-left: 220px;
+  }
+  
+  .discoverContent h1 {
+    font-size: 3rem;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contactHeader h1 {
+    font-size: 3rem;
+  }
+  
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens (768px and down) */
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1rem;
+    gap: 2rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    background: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(20px);
+  }
+  
+  .sidebar.mobileOpen {
+    transform: translateY(0);
+  }
+  
   .logo {
-    filter: invert();
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+  
+  .logoText {
+    font-size: 1.4rem;
+  }
+  
+  .sideNav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .navItem {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    min-width: auto;
+  }
+  
+  .navItem span {
+    display: none;
+  }
+  
+  .mainContent {
+    margin-left: 0;
+    margin-top: 0;
+    padding-top: 4rem;
+  }
+  
+  .topNav {
+    padding: 0.75rem 1rem;
+    margin-left: 0;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+  }
+  
+  .navButtons {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .navButton {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .discoverContent,
+  .browseContent {
+    padding: 1rem;
+  }
+  
+  .discoverContent h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  
+  .introText {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .serviceCard {
+    padding: 1rem;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .contactButton,
+  .portfolioButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .techSection h2,
+  .statsSection h2,
+  .ctaSection h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .techItem {
+    padding: 1rem;
+  }
+  
+  .techIcon {
+    font-size: 2rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .statItem {
+    padding: 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 2.5rem;
+  }
+  
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+  
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+  
+  .ctaSection p {
+    font-size: 1rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .projectCard {
+    height: auto;
+  }
+  
+  .projectImage {
+    height: 180px;
+  }
+  
+  .projectInfo {
+    padding: 1rem;
+  }
+  
+  .featuredSlider {
+    margin-bottom: 2rem;
+  }
+  
+  .slideContent h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Extra small screens (480px and down) */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 0.75rem;
+  }
+  
+  .logoText {
+    font-size: 1.2rem;
+  }
+  
+  .sideNav {
+    gap: 0.5rem;
+  }
+  
+  .navItem {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .discoverContent h1 {
+    font-size: 1.8rem;
+  }
+  
+  .introText {
+    font-size: 0.9rem;
+  }
+  
+  .serviceCard h3 {
+    font-size: 1.1rem;
+  }
+  
+  .serviceCard p {
+    font-size: 0.9rem;
+  }
+  
+  .techSection h2,
+  .statsSection h2,
+  .ctaSection h2 {
+    font-size: 1.8rem;
+  }
+  
+  .techGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .techItem {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+  
+  .statLabel {
+    font-size: 1rem;
+  }
+  
+  .ctaSection h2 {
+    font-size: 1.8rem;
+  }
+  
+  .ctaSection p {
+    font-size: 0.9rem;
+  }
+  
+  .projectInfo h3 {
+    font-size: 1rem;
+  }
+  
+  .projectInfo p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .sidebar {
+    height: auto;
+    min-height: auto;
+  }
+  
+  .sideNav {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .navItem span {
+    display: inline;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logoText {
+    font-weight: 900;
+  }
+  
+  .navItem {
+    font-weight: 600;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .logoText,
+  .navItem,
+  .serviceCard,
+  .techItem,
+  .projectCard,
+  .ctaButton {
+    transition: none;
+  }
+  
+  .navItem:hover .navIcon {
+    transform: none;
+  }
+  
+  .serviceCard:hover,
+  .techItem:hover,
+  .projectCard:hover {
+    transform: none;
+  }
+  
+  .ctaButton:hover {
+    transform: none;
+  }
+}
+
+/* Contact Section Styles */
+.contactHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contactHeader h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.contactIntro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #a0a0a0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+}
+
+.contactInfoSection,
+.socialSection {
+  background: none;
+  border: none;
+  padding: 0;
+  backdrop-filter: none;
+}
+
+.contactInfoSection h2,
+.socialSection h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.contactInfoSection h2::after,
+.socialSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  border-radius: 2px;
+}
+
+.contactCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.contactDetails h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contactDetails p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+}
+
+.socialIntro {
+  color: #a0a0a0;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contactCTA {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 120, 242, 0.1), rgba(0, 166, 255, 0.1));
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(0, 120, 242, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contactCTA h2 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.contactCTA p {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    padding: 0;
+  }
+  .contactInfoSection, .socialSection {
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.3rem 1rem 1.3rem 1rem;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.07);
+    box-sizing: border-box;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.04);
+  }
+  .contactHeader h1 {
+    font-size: 2rem;
+    text-align: center;
+    max-width: 95vw;
+    margin: 0 auto 1.2rem auto;
+    padding: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactCards {
+    gap: 1.1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contactCard {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactIntroSmall, .socialIntro {
+    font-size: 1rem;
+    margin-bottom: 1.1rem;
+    text-align: center;
+    padding: 0 0.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactDetails h3 {
+    font-size: 1.05rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactDetails p {
+    font-size: 0.93rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactInfoSection, .socialSection {
+    max-width: 100%;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.09);
+    margin-bottom: 1.1rem;
+  }
+  .contactHeader h1 {
+    font-size: 1.45rem;
+    text-align: center;
+    max-width: 98vw;
+    margin: 0 auto 1rem auto;
+    padding: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactCards {
+    gap: 0.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contactCard {
+    padding: 0.7rem 0.4rem;
+    border-radius: 9px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactIcon {
+    margin-bottom: 0.4rem;
+  }
+  .contactDetails h3 {
+    font-size: 0.97rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactDetails p {
+    font-size: 0.85rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactIntroSmall, .socialIntro {
+    font-size: 0.97rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    padding: 0 0.3rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .contactInfoSection h2,
+  .socialSection h2 {
+    font-size: 1.08rem;
+    text-align: center;
+    margin-bottom: 0.7rem;
+  }
+}
+
+.moreProjectsBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 4px 18px 0 rgba(0, 120, 242, 0.07);
+  color: #a0a0a0;
+  font-size: 1.18rem;
+  font-weight: 500;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 2.2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.moreProjectsBox:hover {
+  background: rgba(0, 166, 255, 0.10);
+  border-color: #00a6ff;
+  box-shadow: 0 8px 32px 0 rgba(0, 166, 255, 0.13);
+}
+.moreProjectsBox p {
+  margin: 0;
+  padding: 0 1rem;
+  width: 100%;
+  z-index: 2;
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+}
+.moreProjectsBox .sparkleIcon {
+  color: #00a6ff;
+  font-size: 1.6em;
+  margin-right: 0.3em;
+  filter: drop-shadow(0 0 6px #00a6ff44);
+}
+@media (max-width: 768px) {
+  .moreProjectsBox {
+    font-size: 1rem;
+    min-height: 90px;
+    padding: 1.2rem 0.5rem;
+  }
+  .moreProjectsBox p {
+    font-size: 1rem;
+  }
+}
+
+.keywordsCarousel {
+  margin-top: 1.2rem;
+  width: 100%;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.keywordSlide {
+  display: inline-block;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #00a6ff;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #0078f2, #00a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  transition: color 0.3s, background 0.3s;
+  padding: 0.2em 0.7em;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0,166,255,0.07);
+}
+@media (max-width: 600px) {
+  .keywordsCarousel {
+    margin-top: 0.7rem;
+    max-width: 98vw;
+  }
+  .keywordSlide {
+    font-size: 1.1rem;
+    padding: 0.15em 0.5em;
   }
 }
