@@ -537,7 +537,7 @@ export default function Home() {
               </p>
               <button 
                 className={styles.ctaButton}
-                onClick={() => window.location.href = 'mailto:contact@csweb.ro'}
+                onClick={() => window.location.href = 'mailto:sergiuceica@yahoo.com'}
               >
                 Trimite un mesaj
               </button>
