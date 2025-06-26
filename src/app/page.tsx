@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { AiOutlineHome, AiOutlineCode } from "react-icons/ai";
+import { Analytics } from "@vercel/analytics/next"
 import { BiStore } from "react-icons/bi";
 import { VscLibrary } from "react-icons/vsc";
 import { RiContactsLine, RiPagesLine } from "react-icons/ri";
